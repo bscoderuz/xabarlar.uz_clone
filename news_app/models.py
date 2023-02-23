@@ -1,6 +1,7 @@
 from django.utils import timezone
 
 from django.db import models
+from .managers import PublishedManager
 
 
 # Create your models here.
@@ -32,6 +33,9 @@ class News(models.Model):
                               choices=Status.choices,
                               default=Status.Draft
                               )
+
+    objects = models.Manager()  # default manager
+    published = PublishedManager()
 
     class Meta:
         ordering = ["-publish_time"]
