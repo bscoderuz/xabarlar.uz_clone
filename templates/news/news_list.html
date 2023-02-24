@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
+<h2>All news list</h2>
+{% for news in  news_list %}
+    <ul>
+        <a href="{% url 'news_detail' news.pk %}"><li>{{ news.title }}</li></a>
 
+    </ul>
+{% endfor %}
 </body>
 </html>
