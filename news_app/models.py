@@ -1,14 +1,10 @@
 from django.utils import timezone
 
 from django.db import models
-# from .managers import PublishedManager
+from .managers import PublishedManager
 
 
 # Create your models here.
-
-class PublishedManager(models.Manager):
-    def get_queryset(self):
-        return super().get_queryset().filter(status=News.Status.Published)
 
 
 class Category(models.Model):

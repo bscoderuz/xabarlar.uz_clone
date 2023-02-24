@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from news_app.models import News
+from news_app.models import News, Category
 
 
 # Create your views here.
@@ -20,3 +20,21 @@ def news_detail(request, id):
         'news': news
     }
     return render(request, 'news/news_detail.html', context)
+
+
+def home(request):
+    news = News.published.all()
+    categories = Category.objects.all()
+    context = {
+        'news': news,
+        'categories': categories
+    }
+    return render(request, 'news/home.html', context)
+
+
+def contact(request):
+    return render(request, 'news/contact.html')
+
+
+def notFoundPage(request):
+    return render(request, 'news/404.html')
