@@ -1,6 +1,9 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import TemplateView
 
-from news_app.models import News, Category
+from news_app.models import News, Category, Contact
+from .forms import ContactForm
 
 
 # Create your views here.
@@ -33,7 +36,37 @@ def home(request):
 
 
 def contact(request):
-    return render(request, 'news/contact.html')
+    form = ContactForm(request.POST or None)
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        return HttpResponse("Xabar yo'natildi")
+    context = {
+        'form': form
+    }
+    return render(request, 'news/contact.html', context)
+
+
+# Class base view
+
+# class ContactForm(TemplateView):
+#     template_name = 'news/contact.html'
+#
+#     def get(self, request, *args, **kwargs):
+#         form = ContactForm()
+#         context = {
+#             'form': form
+#         }
+#         return render(request, 'news/contact.html', context)
+#
+#     def post(self, request, *args, **kwargs):
+#         form = ContactForm(request.POST)
+#         if request.method == "POST" and form.is_valid():
+#             form.save()
+#             return HttpResponse("Xabar jo'natildi")
+#         context = {
+#             "form": form
+#         }
+#         return render(request, 'news/contact.html', context)
 
 
 def notFoundPage(request):

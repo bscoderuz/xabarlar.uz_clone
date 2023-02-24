@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, News
+from .models import Category, News, Contact
 
 
 @admin.register(Category)
@@ -15,3 +15,8 @@ class NewsAdmin(admin.ModelAdmin):
     date_hierarchy = 'publish_time'
     search_fields = ['title', 'body', ]
     ordering = ['status', 'publish_time', ]
+
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', ]
