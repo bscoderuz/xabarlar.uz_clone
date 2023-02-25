@@ -26,10 +26,10 @@ def news_detail(request, id):
 
 
 def home(request):
-    news = News.published.all()
+    news_list = News.published.all().order_by('-publish_time')[:10]
     categories = Category.objects.all()
     context = {
-        'news': news,
+        'news_list': news_list,
         'categories': categories
     }
     return render(request, 'news/home.html', context)

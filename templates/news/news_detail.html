@@ -9,6 +9,8 @@
 <h1>{{ news.title }}</h1>
 <p>Published date: {{ news.publish_time }}</p>
 <p>{{ news.body | linebreaks }}</p>
+<p>{{ news.image }}</p>
+<img src="{{ news.image }}" alt="">
 
 </body>
 </html>
