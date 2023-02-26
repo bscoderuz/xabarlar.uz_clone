@@ -32,13 +32,13 @@
                 <div class="header_top">
                     <div class="header_top_left">
                         <ul class="top_nav">
-                            <li><a href="{% url 'home_page' %}">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="{% url 'contact_page' %}">Contact</a></li>
+                            <li><a href="{% url 'home_page' %}">Bosh sahifa</a></li>
+                            <li><a href="#">Biz haqimizda</a></li>
+                            <li><a href="{% url 'contact_page' %}">Biz bilan aloqa</a></li>
                         </ul>
                     </div>
                     <div class="header_top_right">
-                        <p>Friday, December 05, 2045</p>
+                        <p>{% now "js F Y H:i" %}</p>
                     </div>
                 </div>
             </div>
@@ -64,22 +64,12 @@
                 <ul class="nav navbar-nav main_nav">
                     <li class="active"><a href="{% url 'home_page' %}"><span
                             class="fa fa-home desktop-home"></span><span
-                            class="mobile-show">Home</span></a></li>
-                    <li><a href="#">Technology</a></li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                            aria-expanded="false">Mobile</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Android</a></li>
-                            <li><a href="#">Samsung</a></li>
-                            <li><a href="#">Nokia</a></li>
-                            <li><a href="#">Walton Mobile</a></li>
-                            <li><a href="#">Sympony</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Laptops</a></li>
-                    <li><a href="#">Tablets</a></li>
-                    <li><a href="{% url 'contact_page' %}">Contact Us</a></li>
-                    <li><a href="{% url 'not-found' %}">404 Page</a></li>
+                            class="mobile-show">Bosh sahifa</span></a></li>
+                    <li><a href="#">Mahalliy</a></li>
+                    <li><a href="#">Texnologiya</a></li>
+                    <li><a href="#">Sport</a></li>
+                    <li><a href="{% url 'contact_page' %}">Biz bilan aloqa</a></li>
+{#                    <li><a href="{% url 'not-found' %}">404 Page</a></li>#}
                 </ul>
             </div>
         </nav>

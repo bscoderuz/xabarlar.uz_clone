@@ -17,8 +17,8 @@ def news_list(request):
     return render(request, 'news/news_list.html', context)
 
 
-def news_detail(request, id):
-    news = get_object_or_404(News, id=id, status=News.Status.Published)
+def news_detail(request, news):
+    news = get_object_or_404(News, slug=news, status=News.Status.Published)
     context = {
         'news': news
     }
@@ -91,3 +91,40 @@ def contact(request):
 
 def notFoundPage(request):
     return render(request, 'news/404.html')
+
+
+class LocalNewsView(ListView):
+    model = News
+    template_name = 'news/local-news.html'
+    context_object_name = 'local-news'
+
+    def get_queryset(self):
+        news = self.model.published.all().filter(category__name="Mahalliy")
+        return news
+
+
+class EuroNewsView(ListView):
+    model = News
+    template_name = 'news/euro-news.html'
+    context_object_name = 'euro-news'
+
+    def get_queryset(self):
+        news = self.model.published.all().filter(category__name="Xorij")
+
+
+class TexnoNewsView(ListView):
+    model = News
+    template_name = 'news/texno-news.html'
+    context_object_name = 'texno-news'
+
+    def get_queryset(self):
+        news = self.model.published.all().filter(category__name="Texnologiya")
+
+
+class SportNewsView(ListView):
+    model = News
+    template_name = 'news/sport-news.html'
+    context_object_name = 'sport-news'
+
+    def get_queryset(self):
+        news = self.model.published.all().filter(category__name="Sport")
