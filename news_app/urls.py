@@ -9,7 +9,7 @@ urlpatterns = [
     path('local-news/', LocalNewsView.as_view(), name='local-news'),
     path('euro-news/', EuroNewsView.as_view(), name='euro-news'),
     path('sport-news/', SportNewsView.as_view(), name='sport-news'),
-    path('texno-news/', TexnoNewsView.as_view(), name='sport-news'),
+    path('texno-news/', TexnoNewsView.as_view(), name='texno-news'),
     path('not-found/', notFoundPage, name='not_found'),
     path('contact', contact, name='contact_page'),
 

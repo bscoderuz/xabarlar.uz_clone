@@ -65,9 +65,10 @@
                     <li class="active"><a href="{% url 'home_page' %}"><span
                             class="fa fa-home desktop-home"></span><span
                             class="mobile-show">Bosh sahifa</span></a></li>
-                    <li><a href="#">Mahalliy</a></li>
-                    <li><a href="#">Texnologiya</a></li>
-                    <li><a href="#">Sport</a></li>
+                    <li><a href="{% url 'local-news' %}">Mahalliy</a></li>
+                    <li><a href="{% url 'euro-news' %}">Xorij</a></li>
+                    <li><a href="{% url 'texno-news' %}">Texnologiya</a></li>
+                    <li><a href="{% url 'sport-news' %}">Sport</a></li>
                     <li><a href="{% url 'contact_page' %}">Biz bilan aloqa</a></li>
 {#                    <li><a href="{% url 'not-found' %}">404 Page</a></li>#}
                 </ul>
