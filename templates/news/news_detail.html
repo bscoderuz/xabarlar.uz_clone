@@ -7,22 +7,28 @@
 {% block content %}
 
 
-<div class="row">
-    <article class="card shadow" style="width: 80%; margin: 10px auto; box-shadow: 1px 2px 1px 2px #ccc">
+    <div class="row">
+        <article class="card shadow" style="width: 80%; margin: 10px auto; box-shadow: 1px 2px 1px 2px #ccc">
 
-        <img src="{{ news.image.url }}" alt="image" width="30%">
-
-
-        <h2>{{ news.title }}</h2>
-        <p>
-            {{ news.category.name }} -
-            <time>{{ news.created_time }}</time>
-        </p>
-        <p>{{ news.body }}</p>
+            <img src="{{ news.image.url }}" alt="image" width="30%">
 
 
-    </article>
-</div>
+            <h2>{{ news.title }}</h2>
+            <p>
+                {{ news.category.name }} -
+                <time>{{ news.created_time }}</time>
+            </p>
+            <p>{{ news.body }}</p>
+
+
+        </article>
+        <div class="card-footer text-center">
+
+            <a href="{% url 'news_edit' news.slug %}">Tahrirlash</a>|
+            <a href="{% url 'news_delete' news.slug %}">O'chirish</a>
+
+        </div>
+    </div>
 
 {% endblock content %}
 

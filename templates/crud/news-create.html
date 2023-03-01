@@ -1,16 +1,16 @@
 {% extends 'news/base.html' %}
 
-{% block title %} {{ news.title }} {% endblock %}
+{% block title %} Yangilik qo'shish {% endblock %}
 
 
 
 
 {% block content %}
-    <h2 class="text-center">Yangilikni tahrirlash</h2>
+    <h2 class="text-center">Yangilik qo'shish</h2>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-info">Tahrirlash</button>
+        <button type="submit" class="btn btn-info">Yangilik qo'shish</button>
     </form>
 
 
