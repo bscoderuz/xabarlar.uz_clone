@@ -1,16 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>News detail</title>
-</head>
-<body>
+{% extends 'news/base.html' %}
+{% load static %}
 
-<h1>{{ news.title }}</h1>
-<p>Published date: {{ news.publish_time }}</p>
-<p>{{ news.body | linebreaks }}</p>
-<p>{{ news.image }}</p>
-<img src="{{ news.image }}" alt="">
+{% block title %} Batafsil {% endblock title %}
 
-</body>
-</html>
+
+{% block content %}
+
+
+<div class="row">
+    <article class="card shadow" style="width: 80%; margin: 10px auto; box-shadow: 1px 2px 1px 2px #ccc">
+
+        <img src="{{ news.image.url }}" alt="image" width="30%">
+
+
+        <h2>{{ news.title }}</h2>
+        <p>
+            {{ news.category.name }} -
+            <time>{{ news.created_time }}</time>
+        </p>
+        <p>{{ news.body }}</p>
+
+
+    </article>
+</div>
+
+{% endblock content %}
+

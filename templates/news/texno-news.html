@@ -3,6 +3,31 @@
 
 {% block title %} Texnologiya Yangiliklari {% endblock title %}
 
+
 {% block content %}
 
+
+    {% for news in texno_news %}
+
+        <div class="row">
+            <article class="card shadow" style="width: 80%; margin: 10px auto; box-shadow: 1px 2px 1px 2px #ccc">
+
+                <img src="{{ news.image.url }}" alt="image" width="30%">
+
+
+                <strong><a href="{% url 'news_detail' news.slug %}">{{ news.title }}</a></strong>
+                <p>
+                    {{ news.category.name }} -
+                    <time>{{ news.created_time }}</time>
+                </p>
+
+
+            </article>
+        </div>
+
+
+
+    {% endfor %}
+
 {% endblock content %}
+
