@@ -38,6 +38,11 @@
                         </ul>
                     </div>
                     <div class="header_top_right">
+                        {% if request.user.is_authenticated %}
+                            <p><a href="{% url 'profile' %}" style="color: yellowgreen">My Profile</a></p>
+                        {% else %}
+                            <p><a href="{% url 'login' %}" style="color: yellowgreen;">Saytga kirish</a></p>
+                        {% endif %}
                         <p>{% now "js F Y H:i" %}</p>
                     </div>
                 </div>
@@ -70,7 +75,7 @@
                     <li><a href="{% url 'texno-news' %}">Texnologiya</a></li>
                     <li><a href="{% url 'sport-news' %}">Sport</a></li>
                     <li><a href="{% url 'contact_page' %}">Biz bilan aloqa</a></li>
-{#                    <li><a href="{% url 'not-found' %}">404 Page</a></li>#}
+                    {#                    <li><a href="{% url 'not-found' %}">404 Page</a></li>#}
                 </ul>
             </div>
         </nav>

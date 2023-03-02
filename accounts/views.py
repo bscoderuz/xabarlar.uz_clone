@@ -30,3 +30,12 @@ def user_login(request):
             'form': form,
         }
     return render(request, 'registration/login.html', context)
+
+
+def dashboard(request):
+    user = request.user
+
+    context = {
+        'user': user
+    }
+    return render(request, 'pages/user-profile.html', context)
