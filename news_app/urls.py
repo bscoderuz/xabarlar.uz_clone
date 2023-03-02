@@ -2,6 +2,8 @@ from django.urls import path
 from .views import news_list, news_detail, home, contact, notFoundPage, HomePageView, LocalNewsView, EuroNewsView, \
     TexnoNewsView, SportNewsView, NewsUpdateView, NewsDeleteView, NewsCreateView
 
+
+
 urlpatterns = [
     path('', HomePageView.as_view(), name='home_page'),
     path('news/', news_list, name='news_list'),
