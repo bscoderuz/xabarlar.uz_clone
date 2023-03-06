@@ -1,0 +1,13 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block title %} Register sahifasi {% endblock %}
+
+
+
+
+{% block content %}
+    <h2>{{ new_user.first_name }}</h2>
+    <p>Saytdan muvaffaqiyatli ro'yxatdan o'tdingiz! <a href="{% url 'login' %}">Login</a>qilib saytga kiring</p>
+
+
+{% endblock %}

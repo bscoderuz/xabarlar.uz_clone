@@ -8,6 +8,7 @@
 {% block content %}
     <h2 class="text-center">Veb-saytga kirish - login</h2>
     <p>Iltimos, saytga kirish uchun formani to'ldiring!</p>
+    <p>Agar parolingizni unutgan bo'lsangiz, uni <a href="{% url 'password_reset' %}">Tiklang</a></p>
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}

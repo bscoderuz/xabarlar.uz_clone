@@ -1,0 +1,19 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block title %} Register sahifasi {% endblock %}
+
+
+
+
+{% block content %}
+    <h2 class="text-center">Foydalanuvchilarni ro'yxatdan o'tkazish</h2>
+    <p>Ro'yxatdan o'tish uchun formani to'ldiring!</p>
+    <p>Agar ro'yxatdan o'tgan bo'lsangiz, <a href="{% url 'login' %}">Login</a> qiling</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-info">Ro'yxatdan o'tish</button>
+    </form>
+
+
+{% endblock %}
