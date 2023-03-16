@@ -1,6 +1,7 @@
 {% extends 'news/base.html' %}
 {% block title %} Bosh sahifa {% endblock title %}
 {% load static %}
+{% load hitcount_tags %}
 
 {% block content %}
     <section id="sliderSection">
@@ -17,6 +18,7 @@
                                        href="{{ news.get_absolute_url }}">{{ news.title | truncatewords:5 }}</a>
                                 </h2>
                                 <p>{{ news.title }}</p>
+
                             </div>
                         </div>
                     {% endfor %}
@@ -40,6 +42,10 @@
                                         <div class="media-body">
                                             <a href="{{ news.get_absolute_url }}"
                                                class="catg_title">{{ news.title|truncatewords:4 }}</a>
+                                            <p>
+                                                Ko'rilganlar soni: <i class="fa fa-eye"
+                                                                      aria-hidden="true"></i> {% get_hit_count for news %}
+                                            </p>
                                         </div>
                                     </div>
                                 </li>
@@ -74,6 +80,10 @@
                                                         {{ localnews.title|truncatewords:5 }}</a>
                                                 </figcaption>
                                                 <p>{{ localnews.title }}</p>
+                                                <p>
+                                                    Ko'rilganlar soni: <i class="fa fa-eye"
+                                                                          aria-hidden="true"></i> {% get_hit_count for localnews %}
+                                                </p>
                                             </figure>
                                         </li>
                                     {% endif %}
@@ -94,6 +104,10 @@
                                                     <a href="{{ local.get_absolute_url }}" class="catg_title">
                                                         {{ local.title }}
                                                     </a>
+                                                    <p>
+                                                        Ko'rilganlar soni: <i class="fa fa-eye"
+                                                                              aria-hidden="true"></i> {% get_hit_count for local %}
+                                                    </p>
                                                 </div>
                                             </div>
                                         </li>
@@ -118,6 +132,10 @@
                                                     <figcaption><a href="{{ xorij.get_absolute_url }}">
                                                         {{ xorij.title }}
                                                     </a></figcaption>
+                                                    <p>
+                                                        Ko'rilganlar soni: <i class="fa fa-eye"
+                                                                              aria-hidden="true"></i> {% get_hit_count for xorij %}
+                                                    </p>
                                                     <p>{{ xorij.body|truncatewords:10 }}</p>
                                                 </figure>
                                             </li>
@@ -136,6 +154,10 @@
                                                     <div class="media-body">
                                                         <a href="{{ xorij.get_absolute_url }}" class="catg_title">
                                                             {{ xorij.title }}</a>
+                                                        <p>
+                                                            Ko'rilganlar soni: <i class="fa fa-eye"
+                                                                                  aria-hidden="true"></i> {% get_hit_count for xorij %}
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -161,6 +183,10 @@
                                                             {{ texno.title }}
                                                         </a>
                                                     </figcaption>
+                                                    <p>
+                                                        Ko'rilganlar soni: <i class="fa fa-eye"
+                                                                              aria-hidden="true"></i> {% get_hit_count for texno %}
+                                                    </p>
                                                     <p>{{ texno.body|truncatewords:10 }}</p>
                                                 </figure>
                                             </li>
@@ -181,6 +207,10 @@
                                                     <div class="media-body">
                                                         <a href="{{ texno.get_absolute_url }}" class="catg_title">
                                                             {{ texno.title }}</a>
+                                                        <p>
+                                                            Ko'rilganlar soni: <i class="fa fa-eye"
+                                                                                  aria-hidden="true"></i> {% get_hit_count for texno %}
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -265,6 +295,10 @@
                                                     <a href="{{ sport.get_absolute_url }}">
                                                         {{ sport.title }} </a>
                                                 </figcaption>
+                                                <p>
+                                                    Ko'rilganlar soni: <i class="fa fa-eye"
+                                                                          aria-hidden="true"></i> {% get_hit_count for sport %}
+                                                </p>
                                                 <p>{{ sport.body|truncatewords:10 }}</p>
                                             </figure>
                                         </li>
@@ -284,7 +318,12 @@
                                                 </a>
                                                 <div class="media-body">
                                                     <a href="{{ sport.get_absolute_url }}" class="catg_title">
-                                                        {{ sport.title }}</a></div>
+                                                        {{ sport.title }}</a>
+                                                    <p>
+                                                        Ko'rilganlar soni: <i class="fa fa-eye"
+                                                                              aria-hidden="true"></i> {% get_hit_count for sport %}
+                                                    </p>
+                                                </div>
                                             </div>
                                         </li>
                                     {% endif %}

@@ -1069,7 +1069,8 @@ figure.effect-layla:hover figcaption::after, figure.effect-layla:hover h2, figur
     float: left;
     display: inline;
     width: 100%;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    background: white;
 }
 
 .single_sidebar > h2 {
