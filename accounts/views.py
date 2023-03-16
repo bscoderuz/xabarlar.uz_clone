@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy
+from django.views import View
+
 from .models import Profile
 from .forms import LoginForm, UserRegisterForm, UserEditForm, ProfileEditForm
 from django.contrib.auth.forms import UserCreationForm
@@ -40,6 +43,7 @@ def user_register(request):
     return render(request, 'account/register.html', context)
 
 
+@login_required
 def user_login(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
@@ -65,16 +69,17 @@ def user_login(request):
         }
     return render(request, 'registration/login.html', context)
 
-
+@login_required
 def dashboard(request):
     user = request.user
-
+    profile_info = Profile.objects.get(user=user)
     context = {
-        'user': user
+        'user': user,
+        'profile_info': profile_info
     }
     return render(request, 'pages/user-profile.html', context)
 
-
+@login_required
 def edit_user(request):
     if request.method == "POST":
         user_form = UserEditForm(instance=request.user, data=request.POST)
@@ -84,6 +89,7 @@ def edit_user(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            return redirect('profile')
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
@@ -92,3 +98,28 @@ def edit_user(request):
         'profile_form': profile_form
     }
     return render(request, 'account/profile_edit.html', context)
+
+
+class EditUserView(View):
+
+    def get(self, request):
+        user_form = UserEditForm(instance=request.user)
+        profile_form = ProfileEditForm(instance=request.user.profile)
+
+        context = {
+            'user_form': user_form,
+            'profile_form': profile_form
+        }
+        return render(request, 'account/profile_edit.html', context)
+
+    def post(self, request):
+        if request.method == "POST":
+            user_form = UserEditForm(instance=request.user,
+                                     data=request.POST)
+            profile_form = ProfileEditForm(instance=request.user.profile,
+                                           data=request.POST,
+                                           files=request.FILES)
+            if user_form.is_valid() and profile_form.is_valid():
+                user_form.save()
+                profile_form.save()
+                return redirect('profile')

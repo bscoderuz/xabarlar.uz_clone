@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import news_list, news_detail, home, contact, notFoundPage, HomePageView, LocalNewsView, EuroNewsView, \
-    TexnoNewsView, SportNewsView, NewsUpdateView, NewsDeleteView, NewsCreateView
+    TexnoNewsView, SportNewsView, NewsUpdateView, NewsDeleteView, NewsCreateView, admin_page
 
 
 
@@ -17,5 +17,6 @@ urlpatterns = [
     path('texno-news/', TexnoNewsView.as_view(), name='texno-news'),
     path('not-found/', notFoundPage, name='not_found'),
     path('contact/', contact, name='contact_page'),
+    path('adminpage/', admin_page, name='admin_page'),
 
 ]

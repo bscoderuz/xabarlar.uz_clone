@@ -1,0 +1,30 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %} Admin sahifasi {% endblock title %}
+
+{% block content %}
+
+    <h1>Admin sahifasi</h1>
+    <h3>Barcha adminlar</h3>
+    <table class="table table-bordered table-responsive table-striped">
+        <tr>
+            <th>Username</th>
+            <th>Familiyasi</th>
+            <th>Ismi</th>
+        </tr>
+        {% if user in admin_user %}
+            <tr>
+                <th>{{ user.username }}</th>
+                <th>{{ user.first_name }}</th>
+                <th>{{ user.last_name }}</th>
+            </tr>
+        {% endif %}
+    </table>
+
+    <h3>Yangilik qo'shish</h3>
+    <a href="{% url 'news_create' %}" class="btn btn-success">Yangilik qo'shish</a>
+
+
+
+{% endblock %}
