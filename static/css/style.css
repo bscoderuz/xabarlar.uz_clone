@@ -121,7 +121,7 @@ img:hover {
 }
 
 .btn-black {
-    background-color: black;
+    background-color: #27509B;
     color: #fff
 }
 
@@ -243,7 +243,7 @@ img:hover {
 }
 
 .header_top {
-    background-color: #2c2c2c;
+    background-color: #27509B;
     display: inline;
     float: left;
     padding: 0 30px;
@@ -374,7 +374,8 @@ img:hover {
 }
 
 .navbar-inverse .navbar-nav > li:first-child a {
-    border: none
+    border: none;
+    background: #27509B;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
@@ -403,13 +404,13 @@ img:hover {
 }
 
 .dropdown-menu {
-    background-color: #222
+    background-color: #27509B;
 }
 
 .dropdown-menu > li > a {
     clear: both;
     color: #ddd;
-    background-color: #222;
+    background-color: #27509B;
     padding: 10px 20px;
     font-family: 'Oswald', sans-serif;
     -webkit-transition: all 0.5s;
@@ -673,7 +674,7 @@ img:hover {
 }
 
 .latest_post > h2 {
-    background: none repeat scroll 0 0 #151515;
+    background: none repeat scroll 0 0 #27509B;
     color: #fff;
     font-family: 'Oswald', sans-serif;
     font-size: 18px;
@@ -758,7 +759,7 @@ img:hover {
 }
 
 .single_post_content > h2 {
-    background: none repeat scroll 0 0 #151515;
+    background: none repeat scroll 0 0 #27509B;
     color: #fff;
     font-family: 'Oswald', sans-serif;
     font-size: 18px;
@@ -1074,7 +1075,7 @@ figure.effect-layla:hover figcaption::after, figure.effect-layla:hover h2, figur
 }
 
 .single_sidebar > h2 {
-    background: none repeat scroll 0 0 #151515;
+    background: none repeat scroll 0 0 #27509B;
     color: #fff;
     font-family: "Oswald", sans-serif;
     font-size: 18px;
@@ -1189,7 +1190,7 @@ figure.effect-layla:hover figcaption::after, figure.effect-layla:hover h2, figur
 }
 
 .footer_top {
-    background-color: #252525;
+    background-color: #27509B;
     color: #ddd;
     display: inline;
     float: left;
