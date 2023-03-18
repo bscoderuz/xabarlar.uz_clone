@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,12 +19,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0=04_)0du^5c7jn0^71cm))neef7tr1*i@+p1!o79iw*j8m#h)'
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -39,12 +39,14 @@ INSTALLED_APPS = [
     'news_app',
     'hitcount',
     'modeltranslation',
+    'whitenoise'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',  # new
+    'whitenoise.middleware.WhiteNoiseMiddleware', #new
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -114,6 +116,8 @@ USE_TZ = True
 
 from django.utils.translation import gettext_lazy as _
 
+LOCALE_PATHS = BASE_DIR, 'locale'
+
 LANGUAGES = [
     ('uz', _("Uzbek")),
     ('en', _("English")),
@@ -139,9 +143,15 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
+
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFileStorage'
+
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home_page'
 LOGIN_URL = 'login'
+
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
