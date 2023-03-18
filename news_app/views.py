@@ -40,6 +40,7 @@ def news_detail(request, news):
         hitcontext['total_hits'] = hits
 
     comments = news.comments.filter(active=True)
+    comment_count = comments.count()
     new_comment = None
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -58,6 +59,7 @@ def news_detail(request, news):
         'comments': comments,
         'new_comment': new_comment,
         'comment_form': comment_form,
+        'comment_count': comment_count
 
     }
     return render(request, 'news/news_detail.html', context)
@@ -188,7 +190,9 @@ class NewsDeleteView(OnlyLoggedSuperUser, DeleteView):
 class NewsCreateView(OnlyLoggedSuperUser, CreateView):
     model = News
     template_name = 'crud/news-create.html'
-    fields = ('title', 'slug', 'body', 'image', 'category', 'status',)
+    fields = (
+    'title', 'title_uz', 'title_en', 'title_ru', 'slug', 'body', 'body_uz', 'body_en', 'body_ru', 'image', 'category',
+    'status',)
 
 
 @login_required

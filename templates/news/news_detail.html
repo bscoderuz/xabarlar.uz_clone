@@ -17,7 +17,11 @@
             <h2>{{ news.title }}</h2>
             <p>
                 {{ news.category.name }} -
-                <time>{{ news.created_time }} | <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %} </time>
+                <time>
+                    {{ news.created_time }} |
+                    <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %}|
+                    izholar soni: {{ comment_count }}
+                </time>
             </p>
             <p>{{ news.body }}</p>
 
@@ -32,7 +36,7 @@
 
             </div>
         {% endif %}
-
+         <h4>Bu yangilikka {{ comment_count }} ta izoh qoldirilgan</h4>
         {% for comment in comments %}
             <div class="comments" style="padding: 10px">
                 <p class="font-weight-bold">

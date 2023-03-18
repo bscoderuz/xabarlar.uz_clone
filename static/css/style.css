@@ -930,8 +930,8 @@ img:hover {
     min-height: 100%;
     max-width: 100%;
     width: 100%;
-    height: 100%
-    opacity: 0.8
+    height: 100%;
+    opacity: 0.8;
 }
 
 .photo_grid figure figcaption {
@@ -1888,4 +1888,4 @@ figure.effect-layla:hover figcaption::after, figure.effect-layla:hover h2, figur
         .nav-tabs > li {
             width: 32.1%
         }
-    }
+    }}
